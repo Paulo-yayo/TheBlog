@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+    <H1> Welcome to events</h1>
+      <div class="row">
+      
+        <!-- Latest Posts -->
+        <section class="posts-listing col-lg-8"> 
+          <div class="container">
+            <div class="row">
+              <!-- post -->
+              <div class="container-fluid">
+  
+
+</div>
+<!-- Grid row -->  
+           
+           </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination pagination-template d-flex justify-content-center">
+                               
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+               
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.number }}" class="page-link active">{{ queryset.number }}</a></li>
+               
+                <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+               
+              </ul>
+            </nav>
+          </div>
+        </section>
+        {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}
+      </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,135 @@
+{% load static %}
+<header class="header">
+    <!-- Main Navbar-->
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="search-area">
+            <div class="search-area-inner d-flex align-items-center justify-content-center">
+                <div class="close-btn"><i class="icon-close"></i></div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8">
+                        <form action="{% url 'search' %}">
+                            <div class="form-group">
+                                <input type="search" name="q" id="search" placeholder="What are you looking for?"
+                                       class=" search-text">
+                                <button type="submit" class="submit"><i class="icon-search-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="navbar-header d-flex align-items-center justify-content-between">
+                <!-- Navbar Brand -->
+                <a href="/" class="navbar-brand"><img src="{% static 'img/Picomm1.png' %}"
+                                                      style="width: 80%; height: 80%;">
+                    <span style="display: inline-block;"></span></a>
+
+
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item"><a href="/" class="nav-link "> </i>Home</a>
+                    </li>
+                    <!-- Navbar Brand Who We Are  -->
+                    <li class="nav-item dropdown dropdown-menu-right">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"></i>About Picomm</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/about">About Blog</a>
+                            <a class="dropdown-item" href="/about_podcast">About Podcast</a>
+                            <a class="dropdown-item" href="/about_shop">About Shop
+                                <a class="dropdown-item" href="/about_media">About Media</a>
+                                <a class="dropdown-item" href="/about_events">About Events</a>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <!-- Toggle Button-->
+                <button type="button" data-toggle="collapse" data-target="#navbarcollapse"
+                        aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler"><span></span><span></span><span></span></button>
+            </div>
+
+            <!-- Navbar Menu -->
+            <div id="navbarcollapse" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/blog" class="nav-link active "><i class="fa fa-rss-square"></i></i>
+                        Blog</a>
+
+
+                        <!-- Navbar Brand Media -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"></i>Media</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Videos</a>
+                            <a class="dropdown-item" href="/gallary">Gallery</a>
+                            <a class="dropdown-item" href="#">Quiz & Polls</a>
+                        </div>
+                    </li>
+
+
+
+
+                    <!-- Dropdown  for Features-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"></i>Features</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/podcast">Podcast</a>
+                            <a class="dropdown-item" href="/event">Events</a>
+                            <a class="dropdown-item" href="/store">Store</a>
+                            <a class="dropdown-item" href="#">Social News</a>
+                        </div>
+                    </li>
+
+                    {% if request.user.is_staff %}
+                        <li class="nav-item"><a href="{% url 'post-create' %}" class="nav-link ">Create</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"> <i class="fa fa-user"></i>Accounts</a>
+
+
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            {% if user.is_authenticated %}
+
+                                <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a><br>
+                                <a href="{% url 'account_reset_password' %}" class="btn btn-primary">Password Reset</a>
+                                <br>
+                                <a href="{% url 'account_email' %}" class="btn btn-primary">Deactive Account</a><br>
+
+                            {% else %}
+                                <a href="{% url 'account_login' %}" class="btn btn-primary">Login</a><br>
+                                <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a><br>
+
+                            {% endif %}
+                        </div>
+
+                    <li class="nav-item"><a href="#" class="nav-link ">Contact Us</a>
+                    </li>
+
+
+                    </li>
+
+
+
+                </ul>
+                <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
+                {% comment %}
+                <ul class="langs navbar-text"><a href="#" class="active">EN</a><span></span><a href="#">ES</a></ul>
+                {% endcomment %}
+            </div>
+        </div>
+    </nav>
+</header>
+
+    
