@@ -76,7 +76,7 @@ djangocms-icon==1.4.0
 djangocms-link==2.4.0
 djangocms-picture==2.2.1
 djangocms-text-ckeditor==3.8.0
-djangorestframework==3.7.0
+djangorestframework==3.11.2
 docutils==0.12
 easy-thumbnails==2.6
 enum34==1.1.6
