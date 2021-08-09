@@ -132,7 +132,7 @@ python-memcached==1.59
 python-ptrace==0.9.4
 python3-openid==3.0.10
 pytz==2018.9
-pywin32==224
+pywin32==301
 PyYAML==5.1.2
 raven==6.9.0
 requests==2.9.1
